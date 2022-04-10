@@ -1,0 +1,179 @@
+Барања:
+4. git clone https://github.com/krstegosharevski/SI_2022_lab1_203009.git
+Со оваа команда го копиравме remote repo кај нас локално. Мора на крај на линкот
+да има .git за да може clone да се изврши!
+
+5. git add shopping_list.txt
+   git commit -m "Add 5 items to the shopping list"
+Го додаваме .txt во staging area и со commit правиме како верзија од него. -m служи за да 
+го крстиме commit-от 
+
+6. git add shopping_list.txt
+   git commit -m "Add quantities to the items."
+Откако ќе додадеме количина го правиме истото
+Го додаваме .txt во staging area и со commit правиме како верзија од него.
+
+7. git branch branch1
+   git branch branch2
+Со ова создадовме 2 нови гранки. Доколку напишеме git branch може да ги погледнеме сите гранки.
+
+8. git log
+commit 7b419b3cefa80df225f013293e965a455791cdd8 (HEAD -> master, branch2, branch1)
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 16:55:01 2022 +0200
+
+    Add quantities to the items.
+
+commit 98dda989e1763d3ad8f6dda10a5dc47f567ec0a1
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 16:53:12 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit 027a9eb3ec5decff659d3d2161ee80637a4c6d8f (origin/master, origin/HEAD)
+Author: krstegosharevski <100604033+krstegosharevski@users.noreply.github.com>
+Date:   Sun Apr 10 16:47:42 2022 +0200
+
+    Ime_prezime_index
+
+commit caf1dadb175f8a9b161a64025fa5952b2590432d
+Author: krstegosharevski <100604033+krstegosharevski@users.noreply.github.com>
+Date:   Sun Apr 10 16:47:08 2022 +0200
+
+    Initial commit
+
+9. git push origin branch2
+   git push origin branch1
+   git push -u origin master
+На овој начин ги прикачивме нашите локални гранки на remote repo!
+
+10. git checkout branch1
+Со командата checkout се префливме на друга гранка од master, а тоа е branch1
+гранката во овој случај.
+
+11.git add shopping_list.txt
+   git commit -m "Change quantity of item #5"
+Менуваме во branch1 гранката.
+
+12. git checkout master
+Се префрламе на гранката master.
+
+13.git add shopping_list.txt
+   git commit -m "Change quantity of item #2"
+И во оваа гранка правиме некој ситни промени.
+
+14. git push origin branch1
+    git push origin branch2
+    git push -u origin master
+Синхронизираме со што сега се што сме направивме локално
+го прикачивме на remote repo, со цел и други колеги да 
+видат или да ги земат примените.
+
+15. git checkout branch2
+Се префрламе на гранката branch2
+
+16.  git add shopping_list.txt
+     git commit -m "Modify item #4"
+Правиме ситни промени повторно (менуваме име на 4 item).
+
+17. git log
+    commit 6404a628cf75481a553d597d42b0e3d9a182ef27 (HEAD -> branch2)
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 17:08:33 2022 +0200
+
+    Modify item #4
+
+commit 7b419b3cefa80df225f013293e965a455791cdd8 (origin/branch2)
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 16:55:01 2022 +0200
+
+    Add quantities to the items.
+
+commit 98dda989e1763d3ad8f6dda10a5dc47f567ec0a1
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 16:53:12 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit 027a9eb3ec5decff659d3d2161ee80637a4c6d8f
+Author: krstegosharevski <100604033+krstegosharevski@users.noreply.github.com>
+Date:   Sun Apr 10 16:47:42 2022 +0200
+
+    Ime_prezime_index
+
+commit caf1dadb175f8a9b161a64025fa5952b2590432d
+Author: krstegosharevski <100604033+krstegosharevski@users.noreply.github.com>
+Date:   Sun Apr 10 16:47:08 2022 +0200
+
+    Initial commit
+18. 
+    git rebase -i HEAD~1 (може и со HEAD^)
+    git add . (Откако ќе додадеме нов item)
+    git commit --amend (да не правиме нов commit да го залепеме на последниот)
+    git rebase --continue (крај на rebase)
+
+19
+  git log
+commit 01317f58202bcd95de8911d59c36fdf4c0b39bd2 (HEAD -> branch2)
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 17:08:33 2022 +0200
+
+    Modify item #4 and add item #6
+
+commit 7b419b3cefa80df225f013293e965a455791cdd8 (origin/branch2)
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 16:55:01 2022 +0200
+
+    Add quantities to the items.
+
+commit 98dda989e1763d3ad8f6dda10a5dc47f567ec0a1
+Author: krste gosarevski <krsste.gosarevski@outlook.com>
+Date:   Sun Apr 10 16:53:12 2022 +0200
+
+    Add 5 items to the shopping list
+
+commit 027a9eb3ec5decff659d3d2161ee80637a4c6d8f
+Author: krstegosharevski <100604033+krstegosharevski@users.noreply.github.com>
+Date:   Sun Apr 10 16:47:42 2022 +0200
+
+    Ime_prezime_index
+
+commit caf1dadb175f8a9b161a64025fa5952b2590432d
+Author: krstegosharevski <100604033+krstegosharevski@users.noreply.github.com>
+Date:   Sun Apr 10 16:47:08 2022 +0200
+
+    Initial commit
+
+20. git checkout master
+    git rebase branch1
+Прашања:
+
+Дали се случиле конфликти при извршување на наредбата? конфлик не настана.
+
+Ако се случиле, како сте ги решиле (начинот за решавање на конфликти
+определете го сами како избор на еден од можните начини)? нема конфликт.
+
+Која стратегија била употребена за да се изврши спојувањето? Рекузивна стратегија.
+
+
+21. gi prifativ promenitw od master
+    git rebase branch2
+    git add shopping_list.txt
+    git rebase --continue
+
+Прашања:
+
+Дали се случиле конфликти при извршување на наредбата? да, настана конфликт.
+
+Ако се случиле, како сте ги решиле (начинот за решавање на конфликти
+определете го сами како избор на еден од можните начини)? Јас го избрав решението од мастер, додека
+решението од branch2 што беше различно од мастер го избришав.
+
+Која стратегија била употребена за да се изврши спојувањето? Рекузивна стратегија.
+
+22. git add 203009.txt
+    git commit -m "Add docs"
+
+23. git push origin branch1
+    git push origin branch2
+    git push -u origin master
