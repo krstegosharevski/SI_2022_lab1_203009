@@ -1,5 +1,5 @@
-Sladoled
-Papaja
-Doner
-Riba
-Sushi
+Sladoled x 1
+Papaja x 2
+Doner x 3
+Riba x 4
+Sushi x 10
